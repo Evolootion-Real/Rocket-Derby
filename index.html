@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rocket Derby</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Three.js and Cannon.js for 3D & Realistic Physics -->
+    <!-- Three.js and Cannon.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cannon.js/0.6.2/cannon.min.js"></script>
 </head>
@@ -14,6 +14,7 @@
     <!-- MAIN MENU SCREEN -->
     <div id="main-menu" class="screen">
         <h1>🚗 ROCKET DERBY</h1>
+        <p id="controller-status" style="color: #4caf50; margin-bottom: 20px;">Checking for controller...</p>
         <div class="menu-buttons">
             <button onclick="startGame('freeplay')">Freeplay</button>
             <button onclick="startGame('bot')">Play vs Bot</button>
@@ -27,7 +28,7 @@
         <h2>Car Garage</h2>
         <p>Customize your ride:</p>
         <div class="customization-options">
-            <label>Car Color: <input type="color" id="car-color-picker" value="#ff0000" onchange="updateCarColor(this.value)"></label>
+            <label>Car Color: <input type="color" id="car-color-picker" value="#ff3d00" onchange="updateCarColor(this.value)"></label>
         </div>
         <button onclick="openScreen('main-menu')">Back to Menu</button>
     </div>
@@ -35,13 +36,14 @@
     <!-- SETTINGS / KEYBINDINGS SCREEN -->
     <div id="settings-screen" class="screen hidden">
         <h2>Controls & Keybindings</h2>
+        <p><em>Keyboard & Mouse / Controller (Plug & Play)</em></p>
         <div class="bindings-list">
             <p>Throttle Up: <span id="bind-throttleUp" class="key-bind" onclick="rebindKey('throttleUp')">W</span></p>
             <p>Throttle Down: <span id="bind-throttleDown" class="key-bind" onclick="rebindKey('throttleDown')">S</span></p>
             <p>Steer Left: <span id="bind-steerLeft" class="key-bind" onclick="rebindKey('steerLeft')">A</span></p>
             <p>Steer Right: <span id="bind-steerRight" class="key-bind" onclick="rebindKey('steerRight')">D</span></p>
-            <p>Boost: <span id="bind-boost" class="key-bind" onclick="rebindKey('boost')">Shift</span></p>
-            <p>Jump: <span id="bind-jump" class="key-bind" onclick="rebindKey('jump')">Space</span></p>
+            <p>Boost: <span id="bind-boost" class="key-bind" onclick="rebindKey('boost')">Shift</span> (Controller: X / Square)</p>
+            <p>Jump: <span id="bind-jump" class="key-bind" onclick="rebindKey('jump')">Space</span> (Controller: A / Cross)</p>
         </div>
         <button onclick="openScreen('main-menu')">Back to Menu</button>
     </div>
